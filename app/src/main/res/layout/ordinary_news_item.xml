@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="12dp"
+    android:layout_height="110dp">
+
+    <LinearLayout
+        android:id="@+id/text_wrapper"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/ordinary_img"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/ordinary_category"
+            android:layout_width="wrap_content"
+            tools:text="#BUSINES"
+            android:textAllCaps="true"
+            android:textColor="@color/read"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/ordinary_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            tools:text="Ведущая Спартака обьявилао своем уходе горячим фото"/>
+
+        <TextView
+            android:id="@+id/ordinary_article_source"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/source_color"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+            android:maxLines="1"
+            tools:text="DW Українська - 2h"/>
+    </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ordinary_img"
+            app:layout_constraintLeft_toRightOf="@id/text_wrapper"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginLeft="8dp"
+            android:background="@color/source_color"
+            android:scaleType="centerCrop"
+            android:layout_width="75dp"
+            android:layout_height="75dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

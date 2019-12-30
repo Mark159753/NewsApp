@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="440dp"
+    xmlns:tools="http://schemas.android.com/tools">
+    <ImageView
+        android:id="@+id/main_img_article"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/main_article_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="3"
+            android:ellipsize="end"
+            android:textColor="@android:color/white"
+            android:layout_marginRight="12dp"
+            android:layout_marginLeft="12dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+            tools:text="Росія відповість на американські санкції Лавров"/>
+        <TextView
+            android:id="@+id/main_article_source"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/source_color"
+            android:layout_marginRight="12dp"
+            android:layout_marginLeft="12dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+            android:maxLines="1"
+            tools:text="DW Українська - 2h"/>
+    </LinearLayout>
+
+</FrameLayout>

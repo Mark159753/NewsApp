@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:padding="12dp"
+    android:layout_height="435dp">
+
+    <ImageView
+        android:id="@+id/beige_img"
+        android:layout_width="match_parent"
+        android:layout_height="193dp"
+        android:scaleType="centerCrop"
+        tools:background="@color/source_color"/>
+    <TextView
+        android:id="@+id/beige_category"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:textAllCaps="true"
+        tools:text="#BUSINES"
+        android:textColor="@color/read"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/beige_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        tools:text="Cколько стоит посуточная аренда в Украине на новогодние праздники 800 грн за дом в Яре.."/>
+    <TextView
+        android:id="@+id/beige_article_source"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/source_color"
+        android:layout_marginTop="8dp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+        android:maxLines="1"
+        tools:text="DW Українська - 2h"/>
+    <TextView
+        android:id="@+id/beige_details"
+        android:layout_width="match_parent"
+        android:maxLines="4"
+        android:ellipsize="end"
+        tools:text="Аналитики сервиса OLX Недвижимость опубликовали актуальые цены на посуточную аренду в Украине на период новогодних праздников.
+Так в Киеве «однушка» обойдется около 650 грн/сутки, место в хостеле — 150 грн/сутки. У моря в Одессе можно найти предложения от 500 грн, а в Карпатах придется выложить в среднем 800 грн/сутки за дом."
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
