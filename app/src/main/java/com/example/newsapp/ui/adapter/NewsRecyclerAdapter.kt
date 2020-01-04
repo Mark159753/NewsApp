@@ -16,6 +16,12 @@ class NewsRecyclerAdapter(
     private val listData:List<Article>
 ) :RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
+    private var listener:OnNewsClickListener? = null
+
+    fun setListener(listener: OnNewsClickListener){
+        this.listener = listener
+    }
+
     override fun getItemViewType(position: Int): Int {
         return listData[position].viewType!!
     }
@@ -85,28 +91,56 @@ class NewsRecyclerAdapter(
     }
 
 
-    inner class MainArticleViewHolder(view:View):RecyclerView.ViewHolder(view){
+    inner class MainArticleViewHolder(view:View):RecyclerView.ViewHolder(view), View.OnClickListener{
         val img = view.findViewById<ImageView>(R.id.main_img_article)
         val title = view.findViewById<TextView>(R.id.main_article_title)
         val source = view.findViewById<TextView>(R.id.main_article_source)
+
+        init {
+            view.setOnClickListener(this)
+        }
+
+        override fun onClick(v: View?) {
+            listener?.newsClick(v, listData[adapterPosition].url!!)
+        }
     }
 
-    inner class BeigeArticleViewHolder(view:View):RecyclerView.ViewHolder(view){
+    inner class BeigeArticleViewHolder(view:View):RecyclerView.ViewHolder(view), View.OnClickListener{
         val img = view.findViewById<ImageView>(R.id.beige_img)
         val title = view.findViewById<TextView>(R.id.beige_title)
         val category = view.findViewById<TextView>(R.id.beige_category)
         val source = view.findViewById<TextView>(R.id.beige_article_source)
         val details = view.findViewById<TextView>(R.id.beige_details)
+
+        init {
+            view.setOnClickListener(this)
+        }
+
+        override fun onClick(v: View?) {
+            listener?.newsClick(v, listData[adapterPosition].url!!)
+        }
     }
 
-    inner class OrdinaryArticleViewHolder(view:View):RecyclerView.ViewHolder(view){
+    inner class OrdinaryArticleViewHolder(view:View):RecyclerView.ViewHolder(view), View.OnClickListener{
         val img = view.findViewById<ImageView>(R.id.ordinary_img)
         val category = view.findViewById<TextView>(R.id.ordinary_category)
         val source = view.findViewById<TextView>(R.id.ordinary_article_source)
         val title = view.findViewById<TextView>(R.id.ordinary_title)
+
+        init {
+            view.setOnClickListener(this)
+        }
+
+        override fun onClick(v: View?) {
+            listener?.newsClick(v, listData[adapterPosition].url!!)
+        }
     }
 
     inner class TitleViewHolder(view:View):RecyclerView.ViewHolder(view){
         val title = view.findViewById<TextView>(R.id.title_title)
+    }
+
+    interface OnNewsClickListener{
+        fun newsClick(view: View?, url:String)
     }
 }

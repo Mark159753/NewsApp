@@ -9,7 +9,7 @@ class DataFrom {
     fun getNewsList():List<Article>{
         val article = ArrayList<Article>()
         article.add(
-            Article( ViewTypes.MAIN_ARTICLE, "news","Joseph Young", "Overnight, the bitcoin price rose to as high as \$7,642 and is up by more than \$1,200 within five days. With the reversal, the dominant cryptocurrency crucially avoided miner capitulation and retest of an ascending channel dating back to 2015.",
+            Article( ViewTypes.MAIN_ARTICLE, "#news","Joseph Young", "Overnight, the bitcoin price rose to as high as \$7,642 and is up by more than \$1,200 within five days. With the reversal, the dominant cryptocurrency crucially avoided miner capitulation and retest of an ascending channel dating back to 2015.",
                 "Overnight, the bitcoin price rose to as high as $7,642 and is up by more than $1,200 within five days. With the reversal, the dominant cryptocurrency crucially avoided miner capitulation and retest of an ascending channel dating back to 2015. #1: No bitcoin m…",
                 "2019-12-23T09:43:30Z", Source(null,"Newsbtc.com"),
                 "Bitcoin Just Spiked to $7,600 and It’s Showing 2 Big Signs of a Real Recovery",
@@ -19,7 +19,7 @@ class DataFrom {
         )
         for (i in 0..4){
             article.add(
-                Article( ViewTypes.ORDINARY_ARTICLE, "news","Joseph Young", "Overnight, the bitcoin price rose to as high as \$7,642 and is up by more than \$1,200 within five days. With the reversal, the dominant cryptocurrency crucially avoided miner capitulation and retest of an ascending channel dating back to 2015.",
+                Article( ViewTypes.ORDINARY_ARTICLE, "#news","Joseph Young", "Overnight, the bitcoin price rose to as high as \$7,642 and is up by more than \$1,200 within five days. With the reversal, the dominant cryptocurrency crucially avoided miner capitulation and retest of an ascending channel dating back to 2015.",
                     "Overnight, the bitcoin price rose to as high as $7,642 and is up by more than $1,200 within five days. With the reversal, the dominant cryptocurrency crucially avoided miner capitulation and retest of an ascending channel dating back to 2015. #1: No bitcoin m…",
                     "2019-12-23T09:43:30Z", Source(null,"Newsbtc.com"),
                     "Bitcoin Just Spiked to $7,600 and It’s Showing 2 Big Signs of a Real Recovery",
@@ -37,7 +37,7 @@ class DataFrom {
         )
 
         article.add(
-            Article(ViewTypes.BEIGE_ARTICLE, "business","Joseph Young", "Overnight, the bitcoin price rose to as high as \$7,642 and is up by more than \$1,200 within five days. With the reversal, the dominant cryptocurrency crucially avoided miner capitulation and retest of an ascending channel dating back to 2015.",
+            Article(ViewTypes.BEIGE_ARTICLE, "#business","Joseph Young", "Overnight, the bitcoin price rose to as high as \$7,642 and is up by more than \$1,200 within five days. With the reversal, the dominant cryptocurrency crucially avoided miner capitulation and retest of an ascending channel dating back to 2015.",
                 "Overnight, the bitcoin price rose to as high as $7,642 and is up by more than $1,200 within five days. With the reversal, the dominant cryptocurrency crucially avoided miner capitulation and retest of an ascending channel dating back to 2015. #1: No bitcoin m…",
                 "2019-12-23T09:43:30Z", Source(null,"Newsbtc.com"),
                 "Bitcoin Just Spiked to $7,600 and It’s Showing 2 Big Signs of a Real Recovery",
@@ -48,7 +48,7 @@ class DataFrom {
 
         for (i in 0..4){
             article.add(
-                Article( ViewTypes.ORDINARY_ARTICLE, "business","Joseph Young", "Overnight, the bitcoin price rose to as high as \$7,642 and is up by more than \$1,200 within five days. With the reversal, the dominant cryptocurrency crucially avoided miner capitulation and retest of an ascending channel dating back to 2015.",
+                Article( ViewTypes.ORDINARY_ARTICLE, "#business","Joseph Young", "Overnight, the bitcoin price rose to as high as \$7,642 and is up by more than \$1,200 within five days. With the reversal, the dominant cryptocurrency crucially avoided miner capitulation and retest of an ascending channel dating back to 2015.",
                     "Overnight, the bitcoin price rose to as high as $7,642 and is up by more than $1,200 within five days. With the reversal, the dominant cryptocurrency crucially avoided miner capitulation and retest of an ascending channel dating back to 2015. #1: No bitcoin m…",
                     "2019-12-23T09:43:30Z", Source(null,"Newsbtc.com"),
                     "Bitcoin Just Spiked to $7,600 and It’s Showing 2 Big Signs of a Real Recovery",
