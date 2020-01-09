@@ -7,4 +7,5 @@ interface NewsRepository {
 
     suspend fun getArticles():LiveData<List<Article>>
 
+    suspend fun getSearch(query:String):LiveData<List<Article>>
 }

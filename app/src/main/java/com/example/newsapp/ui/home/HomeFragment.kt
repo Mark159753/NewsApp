@@ -3,31 +3,23 @@ package com.example.newsapp.ui.home
 import android.content.res.Configuration
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.os.Parcelable
 import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.newsapp.NewsApp
 
 
 import com.example.newsapp.R
 import com.example.newsapp.model.Article
-import com.example.newsapp.test.DataFrom
 import com.example.newsapp.ui.BaseViewModelFactory
 import com.example.newsapp.ui.ViewTypes
 import com.example.newsapp.ui.adapter.NewsRecyclerAdapter
 import com.example.newsapp.utils.ConnectivityReceiver
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.home_fragment.*
 import kotlinx.coroutines.*
 import javax.inject.Inject
@@ -51,23 +43,36 @@ class HomeFragment : Fragment(), ConnectivityReceiver.ConnectivityReceiverListen
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        (activity!!.application as NewsApp).getAppComponent().inject(this)
+        (activity!!.application as NewsApp).getAppComponent().fragmentComponent().plusActivity(activity!!)
+            .create().inject(this)
 
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(HomeViewModel::class.java)
 
-        coroutineScope.launch{
-            val news = viewModel.news.await()
+        createToolBar()
+        bindUI()
+    }
 
-            news.observe(viewLifecycleOwner, Observer {
-                if (it == null) return@Observer
-
-
-            })
-        }
-
+    private fun createToolBar(){
         tool_bar.inflateMenu(R.menu.menu)
+        tool_bar.menu.findItem(R.id.search_btn).setOnMenuItemClickListener {
+            if (it.itemId.equals(R.id.search_btn)){
+                content.findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
+                return@setOnMenuItemClickListener true
+            }else return@setOnMenuItemClickListener false
+        }
+    }
 
-        val data = DataFrom().getNewsList()
+    private fun bindUI() = coroutineScope.launch {
+        val newsList = viewModel.news.await()
+
+        newsList.observe(viewLifecycleOwner, Observer {
+            if (it == null) return@Observer
+            progress_bar.visibility = View.GONE
+            showNews(it)
+        })
+    }
+
+    private fun showNews(data:List<Article>){
         mAdapter = NewsRecyclerAdapter(data)
         mAdapter.setListener(this)
 
@@ -103,7 +108,6 @@ class HomeFragment : Fragment(), ConnectivityReceiver.ConnectivityReceiverListen
     }
 
     override fun onNetworkConnectionChanged(isConnected: Boolean) {
-        //TODO SHOW SNACK BAR IF DON'T HAVE INTERNET CONNECTION
         if (!isConnected) {
             showSnackBar()
         }
@@ -111,7 +115,7 @@ class HomeFragment : Fragment(), ConnectivityReceiver.ConnectivityReceiverListen
     }
 
     private fun showSnackBar(){
-        Snackbar.make(content, "You Don't Connect to Internet", Snackbar.LENGTH_LONG).show()
+        Snackbar.make(content, "You Don't Connect To Internet", Snackbar.LENGTH_LONG).show()
     }
 
     override fun newsClick(view: View?, url: String) {

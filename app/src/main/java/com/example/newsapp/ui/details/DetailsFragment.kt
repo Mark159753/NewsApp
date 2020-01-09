@@ -51,7 +51,7 @@ class DetailsFragment : Fragment() {
     }
 
 
-    class MyWebViewClient: WebViewClient(){
+    inner class MyWebViewClient: WebViewClient(){
 
         override fun shouldOverrideUrlLoading(
             view: WebView?,
@@ -64,6 +64,11 @@ class DetailsFragment : Fragment() {
         override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
             view?.loadUrl(url)
             return true
+        }
+
+        override fun onPageFinished(view: WebView?, url: String?) {
+            super.onPageFinished(view, url)
+            loading_page_progress_bar.visibility = View.GONE
         }
     }
 

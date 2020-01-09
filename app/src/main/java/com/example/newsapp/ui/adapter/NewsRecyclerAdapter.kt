@@ -85,7 +85,7 @@ class NewsRecyclerAdapter(
             }
             ViewTypes.TITLE_GROUP -> {
                 val h = holder as TitleViewHolder
-                h.title.text = item.title
+                h.title.text = item.category
             }
         }
     }

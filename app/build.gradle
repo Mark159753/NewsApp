@@ -53,6 +53,7 @@ dependencies {
 
     // LiveData
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-rc03"
     kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
 
     //Gson

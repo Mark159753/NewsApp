@@ -22,6 +22,11 @@ interface ApiService {
         @Query("pageSize") pageSize:Int
     ):retrofit2.Response<NewsResponse>
 
+    @GET("everything")
+    suspend fun getSearch(
+        @Query("q") search:String
+    ):retrofit2.Response<NewsResponse>
+
     companion object{
         operator fun invoke():ApiService{
             val logger = HttpLoggingInterceptor()
